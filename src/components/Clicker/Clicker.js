@@ -21,8 +21,8 @@ export const Clicker = ({ stock }) => {
     return (
         <div className=" my-5 box">
             <h1 className="contador">{contador}</h1>
-            <button className="btn btn-primary my-2" onClick={aumentar}>Aumentar</button>
             <button className="btn btn-danger" onClick={disminuir}>Disminuir</button>
+            <button className="btn btn-primary my-2" onClick={aumentar}>Aumentar</button>
         </div>
     )
 }

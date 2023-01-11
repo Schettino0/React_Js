@@ -1,4 +1,6 @@
-export const Item = ({ name, img, price }) => {
+import { Link } from "react-router-dom"
+
+export const Item = ({ id,name, img, price }) => {
 
     return (
 
@@ -6,7 +8,8 @@ export const Item = ({ name, img, price }) => {
             <img className="mw-100 p-2" src={img} alt="{name}"></img>
             <h5>{name}</h5>
             <p><strong>Precio :</strong> {price}</p>
-            <button className="btn btn-dark mb-2 ">Comprar</button>
+            <Link to={`/detail/${id}`} className="btn btn-dark mb-2 ">Ver Mas</Link>
+
 
         </div>
     )

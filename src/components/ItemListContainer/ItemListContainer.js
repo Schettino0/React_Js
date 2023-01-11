@@ -8,23 +8,29 @@ import { useParams } from "react-router-dom"
 
 export const ItemListContainer = () => {
     const [productos, SetProductos] = useState([])
-    const parametros = useParams()
-    console.log(parametros)
+
+    const { categoriaid } = useParams()
+
+    console.log(categoriaid)
 
     useEffect(() => {
         pedirDatos()
             .then((res) => {
-                SetProductos(res)
-                console.log(productos)
+                console.log(res)
+                if (categoriaid) {
+                    SetProductos(res.filter(prod => prod.category == categoriaid))
+                } else {
+                    SetProductos(res)
+                }
             })
             .catch((err) => {
                 console.log(err)
             })
-    }, [])
+    }, [categoriaid])
 
     return (
         <div className="ItemListContainer">
-            <Carrousel/>
+            <Carrousel />
             <ItemList productos={productos} />
         </div>
     )

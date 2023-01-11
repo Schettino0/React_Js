@@ -17,9 +17,9 @@ export const NavBar = () => {
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                     <Nav >
                         <Link className="me-3 text-white text-decoration-none btn btn-dark" to="/"> Inicio </Link>
-                        <Link className="me-3 text-white text-decoration-none btn btn-dark" to="/celulares">Celulares </Link >
-                        <Link className="me-3 text-white text-decoration-none btn btn-dark" to="/monitores">Monitores </Link >
-                        <Link className="me-3 text-white text-decoration-none btn btn-dark" to="/perifericos">Perifericos </Link >
+                        <Link className="me-3 text-white text-decoration-none btn btn-dark" to="productos/celular">Celulares </Link >
+                        <Link className="me-3 text-white text-decoration-none btn btn-dark" to="productos/monitor">Monitores </Link >
+                        <Link className="me-3 text-white text-decoration-none btn btn-dark" to="productos/periferico">Perifericos </Link >
                     </Nav>
                 </Navbar.Collapse>
                 <CartWidget contador="0" />

@@ -4,16 +4,21 @@ import "./App.css";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PageNotFound } from "./components/PageNotFound/PageNotFound";
-import { Celulares } from "./components/Celulares/Celulares";
-
+import { ItemDetail, ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 function App() {
   return (
+
+
+
+
     <BrowserRouter>
-      <NavBar />
+    <NavBar />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
         <Route path="*" element={<PageNotFound/>} />
-        <Route path="/productos/:categoryid" element={<ItemListContainer/>}/>
+        <Route path="/productos/:categoriaid" element={<ItemListContainer/>}/>
+        <Route path="detail/:itemid" element={<ItemDetailContainer/>} />
+
       </Routes>
     </BrowserRouter>
 
