@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "name": "Apple iPhone 11 (64 GB / Black)",
+        "price": "$399.990",
+        "category":"celular",
+        "stock":20,
+        "description": "Unsp fx unsp patella, subs for opn fx type I/2 w routn heal",
+        "img": "https://publicapi.solotodo.com/products/66428/picture/?width=300&height=200"
+    },
+    {
+        "id": 2,
+        "name": "Riotoro RX24 (SR2405R)",
+        "price": "$139.840",
+        "category":"monitor",
+        "stock":20,
+        "description": "Nondisp fx of head of r rad, 7thQ",
+        "img": "https://publicapi.solotodo.com/products/98015/picture/?width=300&height=200"
+    },
+    {
+        "id": 3,
+        "name": "Kingston HyperX Alloy Origins Core - Red",
+        "price": "$57.760",
+        "category":"periferico",
+        "stock":20,
+        "description": "Stress fracture, right finger(s), init encntr for fracture",
+        "img": "https://publicapi.solotodo.com/products/70615/picture/?width=300&height=200"
+    },
+    {
+        "id": 4,
+        "name": "Logitech Pro X Superlight - Black",
+        "price": "$94.890",
+        "category":"periferico",
+        "stock":20,
+        "description": "Oth chronic hematogenous osteomyelitis, unsp radius and ulna",
+        "img": "https://publicapi.solotodo.com/products/98849/picture/?width=300&height=200"
+    },
+    {
+        "id": 5,
+        "name": "Samsung Galaxy S21 Ultra 5G",
+        "price": "$699.990",
+        "category":"celular",
+        "stock":20,
+        "description": "Idiopathic chronic gout, right elbow, without tophus (tophi)",
+        "img": "https://publicapi.solotodo.com/products/96944/picture/?width=300&height=200"
+    },
+    {
+        "id": 6,
+        "name": "Corsair K65 RGB MINI",
+        "price": "$39.990",
+        "category":"periferico",
+        "stock":20,
+        "description": "Corros 3rd deg mu sites of unsp lower limb, ex ank/ft, init",
+        "img": "https://publicapi.solotodo.com/products/155528/picture/?width=300&height=200"
+    },
+    {
+        "id": 7,
+        "name": "Samsung C24RG50",
+        "price": "$149.990",
+        "category":"monitor",
+        "stock":20,
+        "description": "Unsp open wound of unsp external genital organs, female",
+        "img": "https://publicapi.solotodo.com/products/133706/picture/?width=300&height=200"
+    },
+    {
+        "id": 8,
+        "name": "Apple iPhone 13 Pro (128 GB / Sierra Blue)",
+        "price": "$768.680",
+        "stock":20,
+        "category":"celular",
+        "description": "Nondisp fx of olecran pro w/o intartic extn unsp ulna, sqla",
+        "img": "https://publicapi.solotodo.com/products/122101/picture/?width=300&height=200"
+    },
+    {
+        "id": 9,
+        "name": "Logitech G502 Hero K/DA Edition",
+        "price": "$44.990",
+        "category":"periferico",
+        "stock":20,
+        "description": "Poisoning by amphetamines, assault",
+        "img": "https://publicapi.solotodo.com/products/116313/picture/?width=300&height=200"
+    },
+    {
+        "id": 10,
+        "name": "Fantech MAXFIT61 MK857 Space Edition",
+        "price": "$26.130",
+        "category":"periferico",
+        "stock":20,
+        "description": "Unspecified injury of inferior mesenteric vein",
+        "img": "https://publicapi.solotodo.com/products/124672/picture/?width=300&height=200"
+    },
+    {
+        "id": 11,
+        "name": "Logitech G203 Lightsync Black ",
+        "price": "$19.990",
+        "category":"periferico",
+        "stock":20,
+        "description": "Nondisp fx of lateral malleolus of r fibula, 7thJ",
+        "img": "https://publicapi.solotodo.com/products/81452/picture/?width=300&height=200"
+    },
+    {
+        "id": 12,
+        "name": "LG UltraGear 27GN60R-B",
+        "price": "$213.000",
+        "category":"monitor",
+        "stock":20,
+        "description": "Corrosion of second degree of right ear, subs encntr",
+        "img": "https://publicapi.solotodo.com/products/156280/picture/?width=300&height=200"
+    },
+    {
+        "id": 13,
+        "name": "Xiaomi Redmi Note 11 Pro 5G ",
+        "price": "276.000",
+        "category":"celular",
+        "stock":20,
+        "description": "Toxic effect of tobacco and nicotine, self-harm, subs",
+        "img": "https://publicapi.solotodo.com/products/135397/picture/?width=300&height=200"
+    },
+    {
+        "id": 14,
+        "name": "Redragon Kumara K552 RGBe",
+        "price": "$41.329",
+        "category":"periferico",
+        "stock":20,
+        "description": "Inj muscle, fascia and tendon of left hip, subs encntr",
+        "img": "https://publicapi.solotodo.com/products/45779/picture/?width=300&height=200"
+    },
+    {
+        "id": 15,
+        "name": "Gear M2444P",
+        "price": "$159.990",
+        "category":"monitor",
+        "stock":20,
+        "description": "Poisoning by other laxatives, assault, sequela",
+        "img": "https://publicapi.solotodo.com/products/122135/picture/?width=300&height=200"
+    }
+]
