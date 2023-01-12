@@ -14,7 +14,7 @@ export const ItemDetail = ({ id, name, price, category, stock, img, description 
                 <h4><strong>Disponible: </strong> {stock}</h4>
                 <Clicker stock={stock} />
 
-                <button className="btn btn-outline-success m-2" >Comprar</button>
+                <button className="btn btn-outline-success m-2" >Agregar al Carro</button>
                 <Link to={"/"} className="btn btn-outline-primary">Volver</Link>
 
             </div>
