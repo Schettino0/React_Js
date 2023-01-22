@@ -1,8 +1,23 @@
-import { Link } from "react-router-dom"
-import { Clicker } from "../Clicker/Clicker"
+
+import { ItemCount } from "../ItemCount/ItemCount"
+import { useState } from "react";
+
 
 export const ItemDetail = ({ id, name, price, category, stock, img, description }) => {
-    console.log(name)
+    const item= {id,name,price,category,stock,img,description}
+    const [cantidad, setCantidad] = useState(1);
+
+
+
+    const handleAgregar = () => {
+        console.log({
+            id,
+            name,
+            cantidad,
+            img
+        })
+    }
+
     return (
         <div className="container d-flex my-5 p-3 gap-5  rounded-3 border border-5 rounded-">
             <div className=" ">
@@ -12,16 +27,13 @@ export const ItemDetail = ({ id, name, price, category, stock, img, description 
                 <h1>{name}</h1>
                 <h3>{price}</h3>
                 <h4><strong>Disponible: </strong> {stock}</h4>
-                <Clicker stock={stock} />
-
-                <button className="btn btn-outline-success m-2" >Agregar al Carro</button>
-                <Link to={"/"} className="btn btn-outline-primary">Volver</Link>
-
+                <ItemCount
+                    stock={stock}
+                    cantidad={cantidad}
+                    setCantidad={setCantidad}
+                    handleAgregar= {handleAgregar}
+                />
             </div>
-
-
-
-
         </div>
     )
 

@@ -9,15 +9,12 @@ export const ItemDetailContainer = () => {
 
     const [item, SetItem] = useState(null)
     const { itemid } = useParams()
-
     useEffect(() => {
         pedirDatosPorID(Number(itemid))
             .then((data) => {
                 SetItem(data)
             })
     }, [itemid])
-    console.log(item)
-
     return (
         <div className="container">
             {
