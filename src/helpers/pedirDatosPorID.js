@@ -12,6 +12,6 @@ export const pedirDatosPorID = (id) => {
                 })
             }
             resolve(stock)
-        }, 2000)
+        }, 500)
     })
 }

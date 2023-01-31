@@ -5,14 +5,17 @@ import logo from "../../Media/logo.png"
 import { CartWidget } from '../CartWidget/CartWidget';
 import "../NavBar/NavBar.scss"
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 export const NavBar = () => {
-
+    const { cart } = useContext(CartContext)
+    const contador = cart.length
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="/"> <img className="header__logo" alt="logo" src={logo} /> </Navbar.Brand>
+                <Link to="/"><Navbar.Brand> <img className="header__logo" alt="logo" src={logo} /> </Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                     <Nav >
@@ -22,7 +25,8 @@ export const NavBar = () => {
                         <Link className="me-3 text-white text-decoration-none btn btn-dark" to="productos/periferico">Perifericos </Link >
                     </Nav>
                 </Navbar.Collapse>
-                <CartWidget contador="0" />
+                <Link to="/carrito"><CartWidget contador={contador} /> </Link>
+
             </Container>
         </Navbar >
 

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Apple iPhone 11 (64 GB / Black)",
-        "price": "$399.990",
+        "price": 399990,
         "category":"celular",
         "stock":20,
         "description": "Unsp fx unsp patella, subs for opn fx type I/2 w routn heal",
@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": "Riotoro RX24 (SR2405R)",
-        "price": "$139.840",
+        "price": 139840,
         "category":"monitor",
         "stock":20,
         "description": "Nondisp fx of head of r rad, 7thQ",
@@ -20,7 +20,7 @@
     {
         "id": 3,
         "name": "Kingston HyperX Alloy Origins Core - Red",
-        "price": "$57.760",
+        "price": 57760,
         "category":"periferico",
         "stock":20,
         "description": "Stress fracture, right finger(s), init encntr for fracture",
@@ -29,7 +29,7 @@
     {
         "id": 4,
         "name": "Logitech Pro X Superlight - Black",
-        "price": "$94.890",
+        "price": 94890,
         "category":"periferico",
         "stock":20,
         "description": "Oth chronic hematogenous osteomyelitis, unsp radius and ulna",
@@ -38,7 +38,7 @@
     {
         "id": 5,
         "name": "Samsung Galaxy S21 Ultra 5G",
-        "price": "$699.990",
+        "price": 699990,
         "category":"celular",
         "stock":20,
         "description": "Idiopathic chronic gout, right elbow, without tophus (tophi)",
@@ -47,7 +47,7 @@
     {
         "id": 6,
         "name": "Corsair K65 RGB MINI",
-        "price": "$39.990",
+        "price": 39990,
         "category":"periferico",
         "stock":20,
         "description": "Corros 3rd deg mu sites of unsp lower limb, ex ank/ft, init",
@@ -56,7 +56,7 @@
     {
         "id": 7,
         "name": "Samsung C24RG50",
-        "price": "$149.990",
+        "price": 149990,
         "category":"monitor",
         "stock":20,
         "description": "Unsp open wound of unsp external genital organs, female",
@@ -65,7 +65,7 @@
     {
         "id": 8,
         "name": "Apple iPhone 13 Pro (128 GB / Sierra Blue)",
-        "price": "$768.680",
+        "price": 768680,
         "stock":20,
         "category":"celular",
         "description": "Nondisp fx of olecran pro w/o intartic extn unsp ulna, sqla",
@@ -74,7 +74,7 @@
     {
         "id": 9,
         "name": "Logitech G502 Hero K/DA Edition",
-        "price": "$44.990",
+        "price": 44990,
         "category":"periferico",
         "stock":20,
         "description": "Poisoning by amphetamines, assault",
@@ -83,7 +83,7 @@
     {
         "id": 10,
         "name": "Fantech MAXFIT61 MK857 Space Edition",
-        "price": "$26.130",
+        "price": 26130,
         "category":"periferico",
         "stock":20,
         "description": "Unspecified injury of inferior mesenteric vein",
@@ -92,7 +92,7 @@
     {
         "id": 11,
         "name": "Logitech G203 Lightsync Black ",
-        "price": "$19.990",
+        "price": 19990,
         "category":"periferico",
         "stock":20,
         "description": "Nondisp fx of lateral malleolus of r fibula, 7thJ",
@@ -101,7 +101,7 @@
     {
         "id": 12,
         "name": "LG UltraGear 27GN60R-B",
-        "price": "$213.000",
+        "price": 213000,
         "category":"monitor",
         "stock":20,
         "description": "Corrosion of second degree of right ear, subs encntr",
@@ -110,7 +110,7 @@
     {
         "id": 13,
         "name": "Xiaomi Redmi Note 11 Pro 5G ",
-        "price": "276.000",
+        "price": 276000,
         "category":"celular",
         "stock":20,
         "description": "Toxic effect of tobacco and nicotine, self-harm, subs",
@@ -119,7 +119,7 @@
     {
         "id": 14,
         "name": "Redragon Kumara K552 RGBe",
-        "price": "$41.329",
+        "price": 41329,
         "category":"periferico",
         "stock":20,
         "description": "Inj muscle, fascia and tendon of left hip, subs encntr",
@@ -128,7 +128,7 @@
     {
         "id": 15,
         "name": "Gear M2444P",
-        "price": "$159.990",
+        "price": 159990,
         "category":"monitor",
         "stock":20,
         "description": "Poisoning by other laxatives, assault, sequela",
