@@ -3,6 +3,9 @@ import { ItemCount } from "../ItemCount/ItemCount"
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
+
+
 export const ItemDetail = ({ id, name, price, category, stock, img, description }) => {
 
     const item = { id, name, price, category, stock, img, description }
@@ -11,7 +14,12 @@ export const ItemDetail = ({ id, name, price, category, stock, img, description 
 
 
     const handleAgregar = () => {
-        console.log(isInCart(id))
+        Swal.fire({
+            icon: 'success',
+            title: 'Ha sido agregado al carrito!',
+            showConfirmButton: false,
+            timer: 2500
+        })
         const item = {
             id,
             stock,
@@ -45,7 +53,7 @@ export const ItemDetail = ({ id, name, price, category, stock, img, description 
                         />
                         :
                         <Link to="/carrito" className="btn btn-success mt-5"> Terminar mi Compra</Link>
-            }
+                }
 
 
             </div>

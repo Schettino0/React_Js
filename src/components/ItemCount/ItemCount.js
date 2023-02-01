@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import "./ItemCount.scss"
 
-export const ItemCount = ({ stock,cantidad,setCantidad,handleAgregar }) => {
+
+export const ItemCount = ({ stock, cantidad, setCantidad, handleAgregar }) => {
 
     const aumentar = () => {
         if (cantidad !== stock) {
@@ -16,11 +17,11 @@ export const ItemCount = ({ stock,cantidad,setCantidad,handleAgregar }) => {
     }
     return (
         <div className=" my-5 text-center">
-            
+
             <button className="btn btn-danger" onClick={disminuir}>-</button>
             <span className="p-4 fa-2x">{cantidad}</span>
             <button className="btn btn-primary my-2" onClick={aumentar}>+</button>
-            <br/>
+            <br />
             <button className="btn btn-outline-success m-2" onClick={handleAgregar} >Agregar al Carro</button>
             <Link to={"/"} className="btn btn-outline-primary">Volver</Link>
 
