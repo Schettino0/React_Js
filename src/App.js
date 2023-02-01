@@ -6,31 +6,14 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { PageNotFound } from "./components/PageNotFound/PageNotFound";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
-import { CartContext } from "./components/context/CartContext";
+import { CartContext, CartProvider } from "./components/context/CartContext";
 import { useState } from "react";
 
 
 function App() {
-  const [cart, setCart] = useState([])
-  console.log(cart)
-
-
-  const agregarCarrito = (item) => {
-    setCart([...cart, (item)])
-  }
-
-  const isInCart = (id) => {
-    return cart.some(item => item.id === id)
-  }
-  const emptyCart= ()=>{
-    setCart([])
-  }
-  const totalCart= ()=>{
-    return cart.reduce((acc, item)=> acc + item.price * item.cantidad,0)
-  }
 
   return (
-    <CartContext.Provider value={{ cart, agregarCarrito, isInCart,emptyCart,totalCart }} >
+    <CartProvider>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -39,11 +22,12 @@ function App() {
           <Route path="/productos/:categoriaid" element={<ItemListContainer />} />
           <Route path="item/:itemid" element={<ItemDetailContainer />} />
           <Route path="/React_Js" element={<Navigate to={"/"} />} />
-          <Route path="/carrito" element={<Carrito/>}/>
-          
+          <Route path="/carrito" element={<Carrito />} />
+
         </Routes>
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
+
   )
 }
 export default App;

@@ -7,7 +7,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 export const Carrito = () => {
 
 
-    const { cart, emptyCart, totalCart } = useContext(CartContext)
+    const { cart, emptyCart, totalCart, removeCarrito } = useContext(CartContext)
     return (
 
         <div className="container my-5">
@@ -15,7 +15,7 @@ export const Carrito = () => {
             {
                 cart.map(item => (
                     <div className="caja border border-3 p-4 d-flex justify-content-between align-items-center" key={item.id}>
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex align-items-center largo">
                             <div>
                                 <h3>{item.name}</h3>
                                 <h5><strong>Cantidad:</strong>  {item.cantidad} </h5>
@@ -26,7 +26,7 @@ export const Carrito = () => {
                             <img className=" img-fluid" src={item.img} alt="{name}"></img>
                         </div>
                             <div>
-                                <button className="btn btn-outline-danger"> <FaTrashAlt /> </button>
+                                <button onClick={()=>removeCarrito(item.id)}  className="btn btn-outline-danger"> <FaTrashAlt /> </button>
                             </div>
                     </div>
 
