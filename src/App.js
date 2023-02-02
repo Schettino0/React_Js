@@ -6,8 +6,8 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { PageNotFound } from "./components/PageNotFound/PageNotFound";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
-import { CartContext, CartProvider } from "./components/context/CartContext";
-import { useState } from "react";
+import { CartProvider } from "./components/context/CartContext";
+import { LoginScreen } from "./components/LoginScreen/LoginScreen";
 
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
           <Route path="item/:itemid" element={<ItemDetailContainer />} />
           <Route path="/React_Js" element={<Navigate to={"/"} />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path="/login" element={< LoginScreen/>} />
 
         </Routes>
       </BrowserRouter>
