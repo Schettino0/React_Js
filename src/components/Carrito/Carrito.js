@@ -8,16 +8,14 @@ import { CarritoEmpty } from "../CarritoEmpty/CarritoEmpty"
 
 
 export const Carrito = () => {
-
     const { cart } = useContext(CartContext)
-
-    const isEmpty = (cart) => {
-        return cart.length > 0 ? true : false
-    }
     return (
-
-        isEmpty(cart)
-            ? <CarritoContenido />
-            : <CarritoEmpty/>
+        <div>
+            {
+                cart.length === 0
+                    ? <CarritoEmpty />
+                    : <CarritoContenido />
+            }
+        </div>
     )
 }

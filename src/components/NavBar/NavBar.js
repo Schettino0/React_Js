@@ -7,11 +7,12 @@ import "../NavBar/NavBar.scss"
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { useLoginContext } from '../context/LoginContext';
 
 export const NavBar = () => {
     const { cart } = useContext(CartContext)
+    const { user, logout } = useLoginContext()
     const contador = cart.length
-
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -25,7 +26,9 @@ export const NavBar = () => {
                         <Link className="me-3 text-white text-decoration-none btn btn-dark" to="productos/periferico">Perifericos </Link >
                     </Nav>
                 </Navbar.Collapse>
-                <Link to="/carrito"><CartWidget contador={contador} /> </Link>
+                <Link  className='me-2 carrito' to="/carrito"><CartWidget contador={contador} /> </Link>
+                <button  className='btn btn-danger me-3' onClick={logout}>Logout</button>
+
 
             </Container>
         </Navbar >

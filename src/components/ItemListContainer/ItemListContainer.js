@@ -1,35 +1,58 @@
-import { useContext, useEffect, useState } from "react"
-import { pedirDatos } from "../../helpers/pedirDatos"
+import { useEffect, useState } from "react"
 import { Carrousel } from "../Carrousel/Carrousel"
 import ItemList from "../ItemList/ItemList"
 import "../ItemListContainer/ItemListContainer.scss"
 import { useParams } from "react-router-dom"
-import { CartContext } from "../context/CartContext"
+import { Loading } from "../Loading/Loading"
+import { collection, query, where, getDocs } from 'firebase/firestore/lite'
+import { db } from "../../firebase/config"
+
+
 
 
 export const ItemListContainer = () => {
     const [productos, SetProductos] = useState([])
     const { categoriaid } = useParams()
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        pedirDatos()
-            .then((res) => {
-                if (categoriaid) {
-                    SetProductos(res.filter(prod => prod.category == categoriaid))
-                } else {
-                    SetProductos(res)
-                }
+        setLoading(true)
+        //1. referecnai
+        const productosRef = collection(db, 'productos')
+        const q = categoriaid
+            ? query(productosRef, where("category", "==", categoriaid))
+            : productosRef
+        //2. Peticion asincronica
+        getDocs(q)
+            .then((resp) => {
+                SetProductos(resp.docs.map((doc) => {
+                    return {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+                }))
+
             })
-            .catch((err) => {
-                console.log(err)
+            .finally(() => {
+                setLoading(false)
             })
-    }, [categoriaid])
+
+
+        console.log(productos)
+
+    }, [categoriaid]);
 
     return (
         <div className="ItemListContainer">
-            <Carrousel />
-            <ItemList productos={productos} />
+            {
+                loading
+                    ? <Loading />
+                    : <>
+                        <Carrousel />
+                        <ItemList productos={productos} />
+                    </>
+            }
         </div>
+
     )
 }
-export default ItemListContainer

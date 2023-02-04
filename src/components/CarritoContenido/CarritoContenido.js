@@ -2,11 +2,12 @@ import { useContext } from "react"
 import { CartContext } from "../context/CartContext"
 import { FaTrashAlt } from 'react-icons/fa'
 import { Link } from "react-router-dom"
+import { CambiarCantidad } from "../CambiarCantidad/CambiarCantidad"
+
 
 export const CarritoContenido = () => {
-
-    const { cart, emptyCart, totalCart, removeCarrito } = useContext(CartContext)
-
+    let value = 0
+    const { cart, emptyCart, totalCart, removeCarrito, currencyFormatter } = useContext(CartContext)
     return (
 
         <div className="container my-5">
@@ -18,11 +19,27 @@ export const CarritoContenido = () => {
                             <div>
                                 <h3>{item.name}</h3>
                                 <h5><strong>Cantidad:</strong>  {item.cantidad} </h5>
-                                <h5><strong>Precio</strong> ${item.cantidad * item.price} </h5>
+                                <h5><strong>Precio</strong> {currencyFormatter({ currency: "CLP", value: item.cantidad*item.price})}</h5>
                             </div>
                         </div>
                         <div>
                             <img className=" img-fluid" src={item.img} alt="{name}"></img>
+                        </div>
+                        <div>
+                            <CambiarCantidad value={item}>
+
+                            </CambiarCantidad>
+
+                            {/* <label>Cantidad:</label>
+                            <input 
+                                onChange={e => { cambiarCantidad(item.id, e.target.value) }}
+                                className="form-control number"
+                                type='number'
+                                name="cantidad"
+                                max={item.stock}
+                                min={1}
+                                placeholder={item.cantidad}
+                            /> */}
                         </div>
                         <div>
                             <button onClick={() => removeCarrito(item.id)} className="btn btn-outline-danger"> <FaTrashAlt /> </button>

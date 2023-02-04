@@ -1,15 +1,16 @@
-import "../LoginScreen/LoginScreen.scss"
+import "../RegisterScreen/RegisterScreen.scss"
 import { useState } from "react";
 import { useLoginContext } from "../context/LoginContext";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { Link } from "react-router-dom";
+
 // ..
 AOS.init();
 
-export const LoginScreen = () => {
+export const RegisterScreen = () => {
 
-    const { login, user, loading, googleLogin } = useLoginContext()
+    const {  user, loading, register } = useLoginContext()
 
     const [values, setValues] = useState({
         email: '',
@@ -24,7 +25,7 @@ export const LoginScreen = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        login(values)
+        register(values)
 
     }
 
@@ -57,16 +58,14 @@ export const LoginScreen = () => {
                     }
                     <button className="btn btn-primary" disabled={loading}>
                         {loading
-                            ? "Ingresando..."
-                            : "Ingresar"
+                            ? "Creando cuenta..."
+                            : "Crear Cuenta"
                         }
                     </button>
 
 
                 </form>
-                <button className="btn btn-primary me-2 "  onClick={googleLogin}> Ingresar con Google</button>
-                <Link to="/register" className="btn btn-outline-primary my-2">Registrarme...</Link>
-
+                <Link to="/login" className="btn btn-outline-primary my-2">Ya tengo cuenta</Link>
             </div>
         </div>
     )
