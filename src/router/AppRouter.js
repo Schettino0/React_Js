@@ -7,6 +7,7 @@ import { ItemDetailContainer } from "../components/ItemDetailContainer/ItemDetai
 import { LoginScreen } from "../components/LoginScreen/LoginScreen";
 import { useLoginContext } from "../components/context/LoginContext";
 import { RegisterScreen } from "../components/RegisterScreen/RegisterScreen";
+import { Finalizar } from "../components/Finalizar/Finalizar";
 
 export const AppRouter = () => {
     const { user } = useLoginContext()
@@ -18,11 +19,12 @@ export const AppRouter = () => {
                         <NavBar />
                         <Routes>
                             <Route path="/" element={<ItemListContainer />} />
-                            <Route path="*" element={<Navigate to ={"/"} />} />
+                            <Route path="*" element={<Navigate to={"/"} />} />
                             <Route path="/productos/:categoriaid" element={<ItemListContainer />} />
                             <Route path="item/:itemid" element={<ItemDetailContainer />} />
                             <Route path="/React_Js" element={<Navigate to={"/"} />} />
                             <Route path="/carrito" element={<Carrito />} />
+                            <Route path="/finalizar" element={<Finalizar />} />
                         </Routes>
                     </>
                     : <>
@@ -30,7 +32,7 @@ export const AppRouter = () => {
                             <Route path="/login" element={< LoginScreen />} />
                             <Route path="/register" element={< RegisterScreen />} />
                             <Route path="*" element={<Navigate to={"/login"} />} />
-                    </Routes>
+                        </Routes>
                     </>
             }
         </BrowserRouter>

@@ -53,9 +53,9 @@ export const RegisterScreen = () => {
                         onChange={handleInputChange}
                         name="password"
                     />
-                    {
+                    {/* {
                         user.error && <p className="error" data-aos="zoom-in">{user.error}</p>
-                    }
+                    } */}
                     <button className="btn btn-primary" disabled={loading}>
                         {loading
                             ? "Creando cuenta..."

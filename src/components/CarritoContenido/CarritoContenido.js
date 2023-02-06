@@ -49,6 +49,7 @@ export const CarritoContenido = () => {
                 ))
             }
             <h3>Total: ${totalCart()}</h3>
+            <Link to="/finalizar" className="btn btn-success me-4" >Finaliar compra</Link>
             <button className="btn btn-danger my-3" onClick={emptyCart}>Vaciar Carrito</button>
             <Link to={"/"} className="btn btn-outline-primary m-lg-4">Volver</Link>
         </div>

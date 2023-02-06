@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { createContext } from "react";
 import { useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut , signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase/config";
 
 
@@ -22,24 +22,29 @@ export const LoginProvider = ({ children }) => {
     })
 
     const googleLogin = () => {
-        signInWithPopup(auth,provider)
-        
+        signInWithPopup(auth, provider)
+        .catch((error=>{
+            setUser({
+                email: null,
+                logged: false,
+                error: error.message
+            })
+        }))
+
 
     }
 
     const login = (values) => {
         setLoading(true)
         signInWithEmailAndPassword(auth, values.email, values.password)
-            // .then((userCredential) => {
-            //     console.log(userCredential)
-            //     setUser({
-            //         email: userCredential.user.email,
-            //         logged: true,
-            //         error: null
-            //     })
-            // })
             .catch((error) => {
                 console.log(error)
+                setUser({
+                    email: null,
+                    logged: false,
+                    error: error.message
+                })
+
             })
             .finally(() => {
                 setLoading(false)
@@ -55,27 +60,19 @@ export const LoginProvider = ({ children }) => {
                     error: null
                 })
             })
-        setUser({
-            name: null,
-            email: null,
-            logged: false,
-            error: null
-        })
         setLoading(false)
     }
     const register = (values) => {
         setLoading(true)
         createUserWithEmailAndPassword(auth, values.email, values.password)
-            // .then((userCredential) => {
-            //     console.log(userCredential)
-            //     setUser({
-            //         email: userCredential.user.email,
-            //         logged: true,
-            //         error: null
-            //     })
-            // })
+
             .catch((error) => {
                 console.log(error)
+                setUser({
+                    email: null,
+                    logged: false,
+                    error: error.message
+                })
             })
             .finally(() => {
                 setLoading(false)
@@ -97,9 +94,8 @@ export const LoginProvider = ({ children }) => {
         })
     }, []);
 
-
     return (
-        <LoginContext.Provider value={{googleLogin,  logout, user, useLoginContext, loading, register, login }}>
+        <LoginContext.Provider value={{ googleLogin, logout, user, useLoginContext, loading, register, login }}>
             {children}
         </LoginContext.Provider>
     )

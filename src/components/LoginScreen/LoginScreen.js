@@ -65,7 +65,7 @@ export const LoginScreen = () => {
 
                 </form>
                 <button className="btn btn-primary me-2 "  onClick={googleLogin}> Ingresar con Google</button>
-                <Link to="/register" className="btn btn-outline-primary my-2">Registrarme...</Link>
+                <Link to="/register" className="btn btn-outline-primary my-2">Registrarme...</Link> 
 
             </div>
         </div>
