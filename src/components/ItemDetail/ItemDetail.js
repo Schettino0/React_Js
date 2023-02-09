@@ -7,12 +7,12 @@ import Swal from 'sweetalert2'
 
 
 
-export const ItemDetail = ({ id, name, price, category, stock, img, description }) => { 
+export const ItemDetail = ({ id, name, price, category, stock, img, description }) => {
     const item = { id, name, price, category, stock, img, description }
     const [cantidad, setCantidad] = useState(1);
     const { agregarCarrito, isInCart } = useContext(CartContext)
     const { currencyFormatter } = useContext(CartContext)
-    const value = price 
+    const value = price
 
     const handleAgregar = () => {
         Swal.fire({
@@ -41,8 +41,13 @@ export const ItemDetail = ({ id, name, price, category, stock, img, description 
             </div>
             <div className="d-flex flex-column">
                 <h1>{name}</h1>
-                <h3> ${currencyFormatter({currency: "CLP" , value})}</h3>
+                <h3> ${currencyFormatter({ currency: "CLP", value })}</h3>
                 <h4><strong>Disponible: </strong> {stock}</h4>
+                {
+                    stock === 0
+                    ? <h3 className="stock">Sin disponibilidad</h3>
+                    : ""
+                }
 
                 {
                     !isInCart(id)
@@ -52,9 +57,9 @@ export const ItemDetail = ({ id, name, price, category, stock, img, description 
                             setCantidad={setCantidad}
                             handleAgregar={handleAgregar}
                         />
-                        :<>
-                        <Link to="/carrito" className="btn btn-success mt-5 terminar"> Terminar mi Compra</Link>
-                        <Link to="/" className="btn btn-outline-primary my-2">Volver</Link>
+                        : <>
+                            <Link to="/carrito" className="btn btn-success mt-5 terminar"> Terminar mi Compra</Link>
+                            <Link to="/" className="btn btn-outline-primary my-2">Volver</Link>
 
                         </>
                 }

@@ -18,9 +18,9 @@ export const ItemCount = ({ stock, cantidad, setCantidad, handleAgregar }) => {
         <div className="my-3 text-center justify-content-center">
             <button className="btn btn-danger" disabled={cantidad==1} onClick={disminuir}>-</button>
             <span className="p-4 fa-2x">{cantidad}</span>
-            <button className="btn btn-primary my-2" disabled={cantidad == stock} onClick={aumentar}>+</button>
+            <button className="btn btn-primary my-2" disabled={stock  === 0 } onClick={aumentar}>+</button>
             <br />
-            <button className="btn btn-outline-success me-5 my-3" onClick={handleAgregar} >Agregar al Carro</button>
+            <button className="btn btn-outline-success me-5 my-3" disabled={stock  === 0 } onClick={handleAgregar} >Agregar al Carro</button>
             <Link to={"/"} className="btn btn-outline-primary">Volver</Link>
 
         </div>

@@ -1,17 +1,22 @@
+import { addDoc, collection, doc, documentId, getDoc, getDocs, query, updateDoc, where, writeBatch, WriteBatch } from "firebase/firestore/lite"
 import { useContext } from "react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Await, Link, Navigate } from "react-router-dom"
 import { CartContext } from "../context/CartContext"
-import { useLoginContext } from "../context/LoginContext"
+import { db } from "../../firebase/config"
 import { Loading } from "../Loading/Loading"
+import Swal from 'sweetalert2'
+import "../Checkout/Checkout.scss"
+import { async } from "@firebase/util"
 
 
 
-export const Finalizar = () => {
 
+export const Checkout = () => {
+
+    const { cart, totalCart, setCart } = useContext(CartContext)
     const [loading, setLoading] = useState(true)
-    const { cart, totalCart } = useContext(CartContext)
-    console.log(cart)
+    const [orderId, setOrderId] = useState(null)
     const [values, setValues] = useState({
         name: "",
         adress: "",
@@ -29,21 +34,84 @@ export const Finalizar = () => {
             [e.target.name]: e.target.value
         })
     }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(values)
+        createOrder(values)
+    }
+
+    const orden = {
+        cliente: values,
+        items: cart,
+        total: totalCart()
+    }
+    const createOrder = async (values) => {
+
+
+        const batch = writeBatch(db)
+        const ordersRef = collection(db, 'orders')
+        const productosRef = collection(db, 'productos')
+        const outOfStock = []
+        const itemsRef = query(productosRef, where(documentId(), 'in', cart.map(prod => prod.id)))
+        const productos = await getDocs(itemsRef)
+
+        productos.docs.forEach(doc => {
+            const item = cart.find(item => item.id === doc.id)
+
+            if (doc.data().stock >= item.cantidad) {
+                batch.update(doc.ref, {
+                    stock: doc.data().stock - item.cantidad
+                })
+            } else {
+                outOfStock.push(item)
+            }
+        })
+
+        if (outOfStock.length === 0) {
+            batch.commit()
+                .then(() => {
+                    addDoc(ordersRef, orden)
+                        .then((doc) => {
+                            setOrderId(doc.id)
+                            setCart([])
+
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Orden de compra generada con exito!',
+                                showConfirmButton: false,
+                                timer: 2500
+                            })
+
+                        })
+                        .catch((error) => console.log(error))
+                })
+        } else {
+            alert("Hay items sin stock")
+        }
+
+    }
+
+
+    if (orderId) {
+        console.log(orderId)
+        return (
+            <div className="container my-5 text-center border border-2 ">
+                <h2>Tu orden de compra se ha generado con exito!</h2>
+                <h3>Numero de orden: {orderId}</h3>
+                <Link to={"/"} className="btn btn-primary my-2">Volver</Link>
+            </div>
+        )
     }
 
     return (
         loading
-            ? <> <Loading/> </>
+            ? <> <Loading /> </>
             : <>
 
-                <div className="container border border-3 my-5 ">
+                <div className="container border border-3 my-5">
                     <h3 className="text-center mb-5">Ingresa tus datos para proceder al pago.</h3>
-                    <div className="d-flex  justify-content-around">
-                        <div className="d-flex  flex-column ">
+                    <div className="d-flex  justify-content-around flex-lg-row flex-column">
+                        <div className="d-flex  flex-column productos ">
                             <h3>Tus productos:</h3>
                             {
                                 cart.map((item) => {
@@ -52,8 +120,8 @@ export const Finalizar = () => {
                                     )
                                 })
                             }
-                            <h3>Total: ${totalCart()}</h3>
                         </div>
+                        <h3>Total: ${totalCart()}</h3>
                         <div>
                             <form onSubmit={handleSubmit}>
                                 <label>Nombre:</label>

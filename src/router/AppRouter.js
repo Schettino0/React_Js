@@ -7,7 +7,7 @@ import { ItemDetailContainer } from "../components/ItemDetailContainer/ItemDetai
 import { LoginScreen } from "../components/LoginScreen/LoginScreen";
 import { useLoginContext } from "../components/context/LoginContext";
 import { RegisterScreen } from "../components/RegisterScreen/RegisterScreen";
-import { Finalizar } from "../components/Finalizar/Finalizar";
+import { Checkout } from "../components/Checkout/Checkout";
 
 export const AppRouter = () => {
     const { user } = useLoginContext()
@@ -24,7 +24,7 @@ export const AppRouter = () => {
                             <Route path="item/:itemid" element={<ItemDetailContainer />} />
                             <Route path="/React_Js" element={<Navigate to={"/"} />} />
                             <Route path="/carrito" element={<Carrito />} />
-                            <Route path="/finalizar" element={<Finalizar />} />
+                            <Route path="/checkout" element={< Checkout/>} />
                         </Routes>
                     </>
                     : <>

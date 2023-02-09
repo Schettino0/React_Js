@@ -53,7 +53,15 @@ export const LoginScreen = () => {
                         name="password"
                     />
                     {
-                        user.error && <p className="error" data-aos="zoom-in">{user.error}</p>
+                        user.error === "Firebase: Error (auth/user-not-found)." && <p className="error" data-aos="zoom-in">Email no encontrado</p>
+                    }
+                    {
+                        user.error === "Firebase: Error (auth/invalid-email)." && <p className="error" data-aos="zoom-in">Email Incorrecto</p>
+                    }
+                    {
+                        user.error === "Firebase: Error (auth/wrong-password)."
+                            ? <p className="error" data-aos="zoom-in">Contraseña Incorrecta</p>
+                            : " "
                     }
                     <button className="btn btn-primary" disabled={loading}>
                         {loading
@@ -64,8 +72,8 @@ export const LoginScreen = () => {
 
 
                 </form>
-                <button className="btn btn-primary me-2 "  onClick={googleLogin}> Ingresar con Google</button>
-                <Link to="/register" className="btn btn-outline-primary my-2">Registrarme...</Link> 
+                <button className="btn btn-primary me-2 " onClick={googleLogin}> Ingresar con Google</button>
+                <Link to="/register" className="btn btn-outline-primary my-2">Registrarme...</Link>
 
             </div>
         </div>
