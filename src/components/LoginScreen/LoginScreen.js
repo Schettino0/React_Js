@@ -34,7 +34,7 @@ export const LoginScreen = () => {
             </div>
             <div className="container login" data-aos="zoom-in">
                 <h2>Ingresa tus datos: </h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} >
                     <label>Email:</label>
                     <input
                         className="form-control my-3"

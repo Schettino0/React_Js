@@ -10,7 +10,7 @@ AOS.init();
 
 export const RegisterScreen = () => {
 
-    const {  user, loading, register } = useLoginContext()
+    const { user, loading, register } = useLoginContext()
 
     const [values, setValues] = useState({
         email: '',
@@ -53,9 +53,9 @@ export const RegisterScreen = () => {
                         onChange={handleInputChange}
                         name="password"
                     />
-                    {/* {
-                        user.error && <p className="error" data-aos="zoom-in">{user.error}</p>
-                    } */}
+                    {
+                        user.error === "Firebase: Password should be at least 6 characters (auth/weak-password)." && <p className="error" data-aos="zoom-in">La Contraseña debe contener como minimo 6 caracteres.</p>
+                    }
                     <button className="btn btn-primary" disabled={loading}>
                         {loading
                             ? "Creando cuenta..."

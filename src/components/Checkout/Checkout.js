@@ -7,7 +7,8 @@ import { db } from "../../firebase/config"
 import { Loading } from "../Loading/Loading"
 import Swal from 'sweetalert2'
 import "../Checkout/Checkout.scss"
-import { async } from "@firebase/util"
+
+import { LoginContext } from "../context/LoginContext"
 
 
 
@@ -15,6 +16,7 @@ import { async } from "@firebase/util"
 export const Checkout = () => {
 
     const { cart, totalCart, setCart } = useContext(CartContext)
+    const { user } = useContext(LoginContext)
     const [loading, setLoading] = useState(true)
     const [orderId, setOrderId] = useState(null)
     const [values, setValues] = useState({
@@ -33,15 +35,16 @@ export const Checkout = () => {
             ...values,
             [e.target.name]: e.target.value
         })
+        console.log(values)
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(values)
         createOrder(values)
     }
 
     const orden = {
         cliente: values,
+        email: user.email,
         items: cart,
         total: totalCart()
     }
@@ -91,7 +94,6 @@ export const Checkout = () => {
 
     }
 
-
     if (orderId) {
         console.log(orderId)
         return (
@@ -134,14 +136,31 @@ export const Checkout = () => {
                                     required
                                 />
                                 <label>Email:</label>
-                                <input
-                                    className="form-control"
-                                    onChange={handleInputChange}
-                                    type='email'
-                                    value={values.emai}
-                                    name="email"
-                                    required
-                                />
+                                {
+                                    user.email
+                                        ? <>
+                                            <input
+                                                placeholder={user.email}
+                                                className="form-control"
+                                                onChange={handleInputChange}
+                                                type='email'
+                                                value={user.email}
+                                                name="email"
+                                                required
+                                            />
+                                        </>
+                                        : <>
+                                            <input
+                                                className="form-control"
+                                                onChange={handleInputChange}
+                                                type='email'
+                                                value={values.email}
+                                                name="email"
+                                                required
+                                            />
+                                        </>
+                                }
+
                                 <label>Direccion:</label>
                                 <input
                                     className="form-control"

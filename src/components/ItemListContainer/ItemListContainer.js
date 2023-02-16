@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom"
 import { Loading } from "../Loading/Loading"
 import { collection, query, where, getDocs } from 'firebase/firestore/lite'
 import { db } from "../../firebase/config"
+import { NavBar } from "../NavBar/NavBar"
 
 
 

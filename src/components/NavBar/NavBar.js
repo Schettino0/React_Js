@@ -26,9 +26,18 @@ export const NavBar = () => {
                         <Link className="me-3 text-white text-decoration-none btn btn-dark" to="productos/periferico">Perifericos </Link >
                     </Nav>
                 </Navbar.Collapse>
-                <Link  className='me-2 carrito' to="/carrito"><CartWidget contador={contador} /> </Link>
-                <button  className='btn btn-danger me-3' onClick={logout}>Logout</button>
-
+                <Link className='me-2 carrito' to="/carrito"><CartWidget contador={contador} /> </Link>
+                {
+                    user.logged
+                        ? <>
+                            <Link to={"/myorders"} className='btn btn-dark me-2'>Mis Ordenes</Link>
+                            <Link to={"/"} className='btn btn-danger' onClick={logout} >Logout</Link>
+                        </>
+                        : <>
+                            <Link to="/login" className='btn btn-primary me-3'>Ingresar</Link>
+                            <Link to="/register" className='btn btn-primary me-3'>Registrar</Link>
+                        </>
+                }
 
             </Container>
         </Navbar >

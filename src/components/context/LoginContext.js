@@ -23,13 +23,13 @@ export const LoginProvider = ({ children }) => {
 
     const googleLogin = () => {
         signInWithPopup(auth, provider)
-        .catch((error=>{
-            setUser({
-                email: null,
-                logged: false,
-                error: error.message
-            })
-        }))
+            .catch((error => {
+                setUser({
+                    email: null,
+                    logged: false,
+                    error: error.message
+                })
+            }))
 
 
     }
@@ -48,6 +48,7 @@ export const LoginProvider = ({ children }) => {
             })
             .finally(() => {
                 setLoading(false)
+
             })
     }
 
@@ -95,7 +96,7 @@ export const LoginProvider = ({ children }) => {
     }, []);
 
     return (
-        <LoginContext.Provider value={{ googleLogin, logout, user, useLoginContext, loading, register, login }}>
+        <LoginContext.Provider value={{ googleLogin, logout, user, useLoginContext, loading, register, login, setLoading }}>
             {children}
         </LoginContext.Provider>
     )
