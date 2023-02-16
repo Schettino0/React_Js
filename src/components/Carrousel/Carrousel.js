@@ -5,7 +5,7 @@ export const Carrousel = () => {
             <Carousel.Item>
                 <img 
                     className="d-block w-100"
-                    src="https://www.pcfactory.cl/public/foto/imbatible/2_3867.png"
+                    src="https://www.pcfactory.cl/public/foto/imbatible/1_2961.jpg"
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -14,7 +14,7 @@ export const Carrousel = () => {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="https://www.pcfactory.cl/public/foto/imbatible/2_3867.png"
+                    src="https://www.pcfactory.cl/public/foto/imbatible/20_3071.png"
                     alt="Second slide"
                 />
 
